@@ -12,6 +12,20 @@
  *   box-shadow : 0px 0px 10px black !important;
  * }
 */
+#main-nav { 
+  font-family: Montserrat; 
+  letter-spacing: 2px; 
+}
+#cta-btn { 
+  padding: 15px 40px;
+  letter-spacing: 2px;
+  font-family: Montserrat;
+}
+#btn-blog { 
+  padding: 5px 30px;
+  letter-spacing: 2px;
+  border: 2px black solid;
+}
 .title { 
   letter-spacing: 4px;
   margin-bottom: 100px;
@@ -21,11 +35,16 @@
   letter-spacing: 4px;
 }
 p { letter-spacing: 2px; }
-.ha-bg-parallax {
-    background: center center no-repeat fixed;
-    height: 750px;
-    margin: 0 auto;
-    width: 100%;
+.wrapper { position: relative; }
+.cd-fixed-bg {
+  position: relative;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 1;
+}
+.cd-fixed-bg {
+  background-attachment: fixed;
 }
 #sub-input {
   background: none;
@@ -34,6 +53,7 @@ p { letter-spacing: 2px; }
   color: #FFFFFF !important;
   margin-right: 20px;
 }
+#p-detail-list li { margin: 15px 0px; }
 
 //
 // Variables
@@ -53,9 +73,9 @@ p { letter-spacing: 2px; }
 
 @brand-primary : #2a2a2a;
 @brand-success : #5cb85c;
-@brand-info : #5bc0de;
+@brand-info : #f2f3f5;
 @brand-warning : #f0ad4e;
-@brand-danger : #d9534f;
+@brand-danger : #f9f9f9;
 
 
 //== Scaffolding
@@ -97,7 +117,7 @@ p { letter-spacing: 2px; }
 @font-size-h6 : ceil((@font-size-base * 0.85)); // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
-@line-height-base : 1.428571429; // 20/14
+@line-height-base : 1.75; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 @line-height-computed : floor((@font-size-base * @line-height-base)); // ~20px
 
