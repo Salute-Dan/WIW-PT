@@ -36,7 +36,7 @@
                         <a class="navbar-brand" href="index.html"><img height="20" alt="Brand" src="imgs/logo_w.svg"></a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                        <ul class="nav navbar-nav navbar-right" id="main-nav">
+                        <ul class="hidden-sm hidden-xs nav navbar-nav navbar-right" id="main-nav">
                             <li>
                                 <a href="collection.html">COLLECTION</a>
                             </li>
@@ -63,13 +63,34 @@
                 </div>
             </div>
         </div>
+        <nav class="cd-primary-nav">
+            <a class="navbar-brand" href="index.html"><img height="20" alt="Brand" src="imgs/logo_w.svg"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                <i class="fa fa-3x fa-mobile fa-fw"></i>
+            </button>
+            <ul>
+                <li class="cd-label">About us</li>
+                <li>
+                    <a href="#0">The team</a>
+                </li>
+                <li>
+                    <a href="#0">Our services</a>
+                </li>
+                <li>
+                    <a href="#0">Our projects</a>
+                </li>
+                <li>
+                    <!-- ... -->
+                </li>
+            </ul>
+        </nav>
         <div class="section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8">
                         <p class="text-center sub-title">DEFINING US</p>
                         <h2 class="text-center title">WISDOM IS WEALTH</h2>
-                        <p contenteditable="true" class="text-center" style="margin-bottom: 40px;">Wisdom Is Wealth honours timeless style, bringing classic designs to the
+                        <p class="text-center" contenteditable="true" style="margin-bottom: 40px;">Wisdom Is Wealth honours timeless style, bringing classic designs to the
                             modern day infused with a multicultural twist. Encapsulating spirit, energy
                             and emotion in a blend that effortlessly creates a brand with an authentic
                             vision and ethical philosophy.</p>
@@ -235,17 +256,22 @@
             </div>
         </footer>
         <script>
-            $(function () {
-                "use strict";
-                var $bgobj = $(".ha-bg-parallax"); // assigning the object
-                $(window).on("scroll", function () {
-                    var yPos = -($(window).scrollTop() / $bgobj.data('speed'));
-                    // Put together our final background position
-                    var coords = 'center ' + yPos + 'px';
-                    // Move the background          
-                    $bgobj.css({ backgroundPosition: coords });
-                });    
-            });
+            $('.navbar-toggle').on('click', function(event){
+    			event.preventDefault(); 
+    			$('.cd-menu-icon').toggleClass('is-clicked'); 
+    			$('.cd-header').toggleClass('menu-is-open');
+    		
+    			//in firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
+    			if( $('.cd-primary-nav').hasClass('is-visible') ) {
+    				$('.cd-primary-nav').removeClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){
+    				$('body').removeClass('overflow-hidden');
+    			});
+    			} else {
+    			$('.cd-primary-nav').addClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){
+    				$('body').addClass('overflow-hidden');
+    			});	
+    		}
+    	});
         </script>
     </body>
 
