@@ -48,12 +48,20 @@ p { letter-spacing: 2px; }
 }
 #sub-input {
   background: none;
-  border: solid 2px white;
+  border-bottom: solid 2px white;
+  border-left: none;
+  border-top: none;
+  border-right: none;
   letter-spacing: 2px;
   color: #FFFFFF !important;
   margin-right: 20px;
 }
 #p-detail-list li { margin: 15px 0px; }
+.center-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 //
 // Variables
@@ -74,7 +82,7 @@ p { letter-spacing: 2px; }
 @brand-primary : #2a2a2a;
 @brand-success : #5cb85c;
 @brand-info : #f2f3f5;
-@brand-warning : #f0ad4e;
+@brand-warning : #956f47;
 @brand-danger : #f9f9f9;
 
 
@@ -240,7 +248,7 @@ p { letter-spacing: 2px; }
 //** Text color for `<input>`s
 @input-color : @gray;
 //** `<input>` border color
-@input-border : #ccc;
+@input-border : 0;
 
 // TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
 //** Default `.form-control` border radius
